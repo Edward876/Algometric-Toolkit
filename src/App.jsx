@@ -17,6 +17,7 @@ import RadixSortVisualizer from './components/RadixSortVisualizer';
 import KnapsackVisualizer from './components/KnapsackVisualizer';
 import LCSVisualizer from './components/LCSVisualizer';
 import LPSVisualizer from './components/LPSVisualizer';
+import DijkstraAlgorithmVisualizer from './components/DijkstraAlgorithmVisualizer';
 
 // Styled components for our landing page
 const AppContainer = styled.div`
@@ -957,6 +958,7 @@ function App() {
                     <DropdownItem to="/knapsack" onClick={handleDropdownItemClick}>Knapsack</DropdownItem>
                     <DropdownItem to="/lcs" onClick={handleDropdownItemClick}>Longest Common Subsequence (LCS)</DropdownItem>
                     <DropdownItem to="/lps" onClick={handleDropdownItemClick}>Longest Palindromic Subsequence (LPS)</DropdownItem>
+                    <DropdownItem to="/dijkstra" onClick={handleDropdownItemClick}>Dijkstra Algorithm</DropdownItem>
                   </DropdownMenu>
                 )}
               </AnimatePresence>
@@ -983,6 +985,7 @@ function App() {
               <Route path="/knapsack" element={<KnapsackVisualizer />} />
               <Route path="/lcs" element={<LCSVisualizer />} />
               <Route path="/lps" element={<LPSVisualizer />} />
+              <Route path="/dijkstra" element={<DijkstraAlgorithmVisualizer />} />
               <Route path="/tree-algorithms" element={<TreeVisualizer />} />
               <Route path="*" element={<Navigate to="/" replace />} />
             </Routes>

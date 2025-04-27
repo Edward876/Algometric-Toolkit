@@ -15,6 +15,7 @@ import SelectionSortVisualizer from './components/SelectionSortVisualizer';
 import InsertionSortVisualizer from './components/InsertionSortVisualizer';
 import RadixSortVisualizer from './components/RadixSortVisualizer';
 import KnapsackVisualizer from './components/KnapsackVisualizer';
+import LCSVisualizer from './components/LCSVisualizer';
 
 // Styled components for our landing page
 const AppContainer = styled.div`
@@ -953,6 +954,7 @@ function App() {
                     transition={{ duration: 0.3 }}
                   >
                     <DropdownItem to="/knapsack" onClick={handleDropdownItemClick}>Knapsack</DropdownItem>
+                    <DropdownItem to="/lcs" onClick={handleDropdownItemClick}>Longest Common Subsequence (LCS)</DropdownItem>
                   </DropdownMenu>
                 )}
               </AnimatePresence>
@@ -977,6 +979,7 @@ function App() {
               <Route path="/radix-sort" element={<RadixSortVisualizer />} />
               <Route path="/bucket-sort" element={<BucketSortVisualizer />} />
               <Route path="/knapsack" element={<KnapsackVisualizer />} />
+              <Route path="/lcs" element={<LCSVisualizer />} />
               <Route path="/tree-algorithms" element={<TreeVisualizer />} />
               <Route path="*" element={<Navigate to="/" replace />} />
             </Routes>

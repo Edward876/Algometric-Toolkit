@@ -14,6 +14,7 @@ import TreeVisualizer from './components/TreeVisualizer';
 import SelectionSortVisualizer from './components/SelectionSortVisualizer';
 import InsertionSortVisualizer from './components/InsertionSortVisualizer';
 import RadixSortVisualizer from './components/RadixSortVisualizer';
+import KnapsackVisualizer from './components/KnapsackVisualizer';
 
 // Styled components for our landing page
 const AppContainer = styled.div`
@@ -868,6 +869,7 @@ function Home() {
 function App() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [sortingDropdownOpen, setSortingDropdownOpen] = useState(false);
+  const [otherAlgosDropdownOpen, setOtherAlgosDropdownOpen] = useState(false);
 
   // Toggle dropdown menu
   const toggleSortingDropdown = () => {
@@ -937,6 +939,25 @@ function App() {
                 )}
               </AnimatePresence>
             </DropdownContainer>
+            
+            <DropdownContainer>
+              <DropdownButton onClick={() => setOtherAlgosDropdownOpen(!otherAlgosDropdownOpen)} isOpen={otherAlgosDropdownOpen}>
+                Other Algorithms <span>▼</span>
+              </DropdownButton>
+              <AnimatePresence>
+                {otherAlgosDropdownOpen && (
+                  <DropdownMenu
+                    initial={{ opacity: 0, y: -10, height: 0 }}
+                    animate={{ opacity: 1, y: 0, height: "auto" }}
+                    exit={{ opacity: 0, y: -10, height: 0 }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    <DropdownItem to="/knapsack" onClick={handleDropdownItemClick}>Knapsack</DropdownItem>
+                  </DropdownMenu>
+                )}
+              </AnimatePresence>
+            </DropdownContainer>
+            
             <NavLink to="/tree-algorithms" onClick={() => setMenuOpen(false)} className="hover-underline">
               Tree Algorithms
             </NavLink>
@@ -955,6 +976,7 @@ function App() {
               <Route path="/heap-sort" element={<HeapSortVisualizer />} />
               <Route path="/radix-sort" element={<RadixSortVisualizer />} />
               <Route path="/bucket-sort" element={<BucketSortVisualizer />} />
+              <Route path="/knapsack" element={<KnapsackVisualizer />} />
               <Route path="/tree-algorithms" element={<TreeVisualizer />} />
               <Route path="*" element={<Navigate to="/" replace />} />
             </Routes>
